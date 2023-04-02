@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:27:35 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 16:20:45 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:10:08 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,23 @@ void	*check_vital(void *arg)
 
 void	*check_all_is_full(void *arg)
 {
-	t_philosophers *philosophers;
-	int	i;
+	t_philo_info	*philo_info;
+	int				i;
 
-	philosophers = (t_philosophers *)arg;
-	i = -1;
-	while (++i < philosophers->philo_info->number_of_philosophers)
+	philo_info = ((t_philosophers *)arg)->philo_info;
+	while (!philo_info->is_end)
 	{
-		pthread_mutex_lock(&philosophers[i].philo_info->during_routine);
-		if (philosophers[i].number_of_times_eaten
-			< philosophers[i].philo_info->number_of_must_eat)
+		pthread_mutex_lock(&philo_info->during_routine);
+		i = -1;
+		while (++i < philo_info->number_of_philosophers)
 		{
-			pthread_mutex_unlock(&philosophers[i].philo_info->during_routine);
-			return (NULL);
+			if (philo_info->philosophers[i].number_of_times_eaten
+				< philo_info->number_of_must_eat)
+				break ;
 		}
-		pthread_mutex_unlock(&philosophers[i].philo_info->during_routine);
+		if (i == philo_info->number_of_philosophers)
+			philo_info->is_end = true;
+		pthread_mutex_unlock(&philo_info->during_routine);
 	}
-	philosophers->philo_info->is_end = true;
 	return (NULL);
 }
