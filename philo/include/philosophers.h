@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:02:11 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 16:27:00 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:29:21 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ long long	ft_atoll(const char *str);
 long long	get_time(void);
 
 /*--------------------------------- MAIN ------------------------------------*/
-void	set_philo_info(t_philo_info *philo_info, char **argv);
+void	init_philo_info(t_philo_info *philo_info, char **argv);
 bool	is_valid_info(t_philo_info *philo_info);
 
 /*----------------------------- PHILOSOPHERS --------------------------------*/

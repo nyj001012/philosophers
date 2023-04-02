@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	argv++;
-	set_philo_info(&philo_info, argv);
+	init_philo_info(&philo_info, argv);
 	if (!is_valid_info(&philo_info))
 	{
 		printf("Error: Wrong argument\n");

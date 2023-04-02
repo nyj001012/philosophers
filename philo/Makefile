@@ -12,13 +12,12 @@
 
 NAME = philo
 SRCS = ./main.c\
-	   ./set_philo_info.c\
 	   ./is_valid_info.c\
+	   ./init_philo_info.c\
 	   ./init_philosophers.c\
-	   ./give_birth_to_philosophers.c\
+	   ./life_of_philosophers.c\
 	   ./monitoring.c\
-	   ./actions/live.c\
-	   ./actions/routine.c\
+	   ./routine.c\
 	   ./util/common_util.c\
 	   ./util/print_util.c
 
