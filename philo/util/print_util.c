@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:59:02 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 21:42:10 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 21:43:17 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_eating(t_philosophers *philosophers)
 	if (philosophers->philo_info->is_end)
 		return ;
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
-	time = get_time() -  philosophers->philo_info->birthday;
+	time = get_time() - philosophers->philo_info->birthday;
 	printf("%lld\t", time);
 	printf("%d\tis eating\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);
