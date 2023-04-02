@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:30:15 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 15:29:04 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:20:38 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*live(void *arg)
 	t_philosophers	*philosophers;
 
 	philosophers = (t_philosophers *)arg;
-	if (philosophers->number % 2 == 0)
+	if (philosophers->number % 2 == 1)
 		usleep(philosophers->philo_info->time_to_eat * 1000);
 	while (!philosophers->philo_info->is_end)
 	{
