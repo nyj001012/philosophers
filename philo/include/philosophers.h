@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:02:11 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 18:32:11 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:41:11 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,9 @@ typedef struct s_philosophers
 long long	ft_atoll(const char *str);
 long long	get_time(void);
 
-/*--------------------------------- MAIN ------------------------------------*/
+/*----------------------------- PHILOSOPHERS --------------------------------*/
 void		init_philo_info(t_philo_info *philo_info, char **argv);
 bool		is_valid_info(t_philo_info *philo_info);
-
-/*----------------------------- PHILOSOPHERS --------------------------------*/
 void		init_philosophers(t_philo_info *philo_info);
 void		give_birth_to_philosophers(t_philo_info *philo_info);
 void		*live(void *philosophers);

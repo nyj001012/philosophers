@@ -12,14 +12,13 @@
 
 NAME = philo
 SRCS = ./main.c\
-	   ./is_valid_info.c\
-	   ./init_philo_info.c\
-	   ./init_philosophers.c\
 	   ./life_of_philosophers.c\
-	   ./monitoring.c\
 	   ./routine.c\
 	   ./util/common_util.c\
-	   ./util/print_util.c
+	   ./util/print_util.c\
+	   ./util/initialize_util.c\
+	   ./util/monitoring_util.c\
+	   ./util/validation_util.c
 
 OBJS   = $(SRCS:.c=.o)
 INC	   = -I include
