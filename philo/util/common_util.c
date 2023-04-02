@@ -6,11 +6,11 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:18:11 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 12:49:27 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:32:42 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/philosophers.h"
+#include "../include/philosophers.h"
 
 /*
  * Description: 현재 시각을 밀리초 단위로 변환 한다.
@@ -30,7 +30,7 @@ long long	ft_atoll(const char *str)
 {
 	long long	ll;
 	long long	sign;
-	int	i;
+	int			i;
 
 	ll = 0;
 	sign = 1;
@@ -50,5 +50,3 @@ long long	ft_atoll(const char *str)
 	}
 	return (ll * sign);
 }
-
-

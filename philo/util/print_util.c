@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:59:02 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 17:57:53 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:32:57 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	print_fork(t_philosophers *philosophers)
 	long long	time;
 
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
-	time = get_time() -  philosophers->philo_info->birthday;
+	time = get_time() - philosophers->philo_info->birthday;
 	printf("%lld\t", time);
 	printf("%d\thas taken a fork\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);

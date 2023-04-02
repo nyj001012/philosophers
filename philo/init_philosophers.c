@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:16:21 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 16:07:30 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/02 18:34:33 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	init_philosophers(t_philo_info *philo_info)
 	int	i;
 
 	pthread_mutex_init(&philo_info->during_routine, NULL);
-	philo_info->philosophers = (t_philosophers *)malloc(sizeof(t_philosophers) * philo_info->number_of_philosophers);
-	philo_info->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * philo_info->number_of_philosophers);
+	philo_info->philosophers = (t_philosophers *)malloc(
+			sizeof(t_philosophers) * philo_info->number_of_philosophers);
+	philo_info->forks = (pthread_mutex_t *)malloc(
+			sizeof(pthread_mutex_t) * philo_info->number_of_philosophers);
 	i = -1;
 	while (++i < philo_info->number_of_philosophers)
 	{
@@ -36,7 +38,8 @@ void	init_philosophers(t_philo_info *philo_info)
 		philo_info->philosophers[i].philo_info = philo_info;
 		philo_info->philosophers[i].left_fork = &philo_info->forks[i];
 		if (!i)
-			philo_info->philosophers[i].right_fork = &philo_info->forks[philo_info->number_of_philosophers - 1];
+			philo_info->philosophers[i].right_fork = \
+			&philo_info->forks[philo_info->number_of_philosophers - 1];
 		else
 			philo_info->philosophers[i].right_fork = &philo_info->forks[i - 1];
 	}
