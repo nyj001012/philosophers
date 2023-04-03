@@ -25,8 +25,8 @@ void	print_eating(t_philosophers *philosophers)
 		return ;
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
 	time = get_time() - philosophers->philo_info->birthday;
-	printf("%lld\t", time);
-	printf("%d\tis eating\n", philosophers->number);
+	printf("%lld ", time);
+	printf("%d is eating\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);
 }
 
@@ -43,8 +43,8 @@ void	print_sleeping(t_philosophers *philosophers)
 		return ;
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
 	time = get_time() - philosophers->philo_info->birthday;
-	printf("%lld\t", time);
-	printf("%d\tis sleeping\n", philosophers->number);
+	printf("%lld ", time);
+	printf("%d is sleeping\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);
 }
 
@@ -61,8 +61,8 @@ void	print_thinking(t_philosophers *philosophers)
 		return ;
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
 	time = get_time() - philosophers->philo_info->birthday;
-	printf("%lld\t", time);
-	printf("%d\tis thinking\n", philosophers->number);
+	printf("%lld ", time);
+	printf("%d is thinking\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);
 }
 
@@ -78,8 +78,8 @@ void	print_death(t_philosophers *philosophers)
 	if (philosophers->philo_info->is_end)
 		return ;
 	time = get_time() - philosophers->philo_info->birthday;
-	printf("%lld\t", time);
-	printf("%d\tdied\n", philosophers->number);
+	printf("%lld ", time);
+	printf("%d died\n", philosophers->number);
 	philosophers->philo_info->is_end = true;
 	philosophers->is_alive = false;
 }
@@ -97,7 +97,7 @@ void	print_fork(t_philosophers *philosophers)
 		return ;
 	pthread_mutex_lock(&philosophers->philo_info->during_routine);
 	time = get_time() - philosophers->philo_info->birthday;
-	printf("%lld\t", time);
-	printf("%d\thas taken a fork\n", philosophers->number);
+	printf("%lld ", time);
+	printf("%d has taken a fork\n", philosophers->number);
 	pthread_mutex_unlock(&philosophers->philo_info->during_routine);
 }

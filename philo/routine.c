@@ -47,10 +47,16 @@ void	wait_and_end_routine(t_philo_info *philo_info)
  */
 void	take_fork(t_philosophers *philosophers)
 {
-	if (philosophers->philo_info->is_end)
+	if (!philosophers->is_alive)
 		return ;
 	pthread_mutex_lock(philosophers->left_fork);
 	print_fork(philosophers);
+	if (philosophers->philo_info->number_of_philosophers == 1)
+	{
+		pthread_mutex_unlock(philosophers->left_fork);
+		philosophers->is_alive = false;
+		return ;
+	}
 	pthread_mutex_lock(philosophers->right_fork);
 	print_fork(philosophers);
 }
@@ -70,13 +76,13 @@ void	take_fork(t_philosophers *philosophers)
  */
 void	eat(t_philosophers *philosophers)
 {
-	if (philosophers->philo_info->is_end)
+	if (!philosophers->is_alive)
 		return ;
 	pthread_mutex_lock(&philosophers->critical_section);
 	print_eating(philosophers);
-	usleep(philosophers->philo_info->time_to_eat * 1000);
 	philosophers->last_time_eaten = get_time();
 	philosophers->number_of_times_eaten++;
+	my_usleep(philosophers->philo_info->time_to_eat);
 	pthread_mutex_unlock(&philosophers->critical_section);
 	pthread_mutex_unlock(philosophers->left_fork);
 	pthread_mutex_unlock(philosophers->right_fork);
@@ -91,10 +97,10 @@ void	eat(t_philosophers *philosophers)
  */
 void	do_sleep(t_philosophers *philosophers)
 {
-	if (philosophers->philo_info->is_end)
+	if (!philosophers->is_alive)
 		return ;
 	print_sleeping(philosophers);
-	usleep(philosophers->philo_info->time_to_sleep * 1000);
+	my_usleep(philosophers->philo_info->time_to_sleep);
 }
 
 /*
@@ -105,7 +111,7 @@ void	do_sleep(t_philosophers *philosophers)
  */
 void	think(t_philosophers *philosophers)
 {
-	if (philosophers->philo_info->is_end)
+	if (!philosophers->is_alive)
 		return ;
 	print_thinking(philosophers);
 }

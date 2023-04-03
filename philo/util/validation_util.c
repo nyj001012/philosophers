@@ -22,11 +22,11 @@ bool	is_valid_info(t_philo_info *philo_info)
 {
 	if (philo_info->number_of_philosophers < 1)
 		return (false);
-	if (philo_info->time_to_die < 0)
+	if (philo_info->time_to_die < 1)
 		return (false);
-	if (philo_info->time_to_eat < 0)
+	if (philo_info->time_to_eat < 1)
 		return (false);
-	if (philo_info->time_to_sleep < 0)
+	if (philo_info->time_to_sleep < 1)
 		return (false);
 	if (philo_info->number_of_must_eat < 0)
 		return (false);

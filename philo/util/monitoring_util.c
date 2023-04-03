@@ -70,6 +70,11 @@ void	*check_all_is_full(void *arg)
 			if (philo_info->philosophers[i].number_of_times_eaten
 				< philo_info->number_of_must_eat)
 				break ;
+			if (!philo_info->philosophers->is_alive)
+			{
+				philo_info->is_end = true;
+				break ;
+			}
 		}
 		if (i == philo_info->number_of_philosophers)
 			philo_info->is_end = true;

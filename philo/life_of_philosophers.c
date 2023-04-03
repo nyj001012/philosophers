@@ -28,9 +28,9 @@ void	*live(void *arg)
 	t_philosophers	*philosophers;
 
 	philosophers = (t_philosophers *)arg;
-	if (philosophers->number % 2 == 1)
-		usleep(philosophers->philo_info->time_to_eat * 1000);
-	while (!philosophers->philo_info->is_end)
+	if (philosophers->number % 2 == 0)
+		my_usleep(philosophers->philo_info->time_to_eat);
+	while (!philosophers->philo_info->is_end && (philosophers->left_fork))
 	{
 		take_fork(philosophers);
 		eat(philosophers);
@@ -63,7 +63,7 @@ void	give_birth_to_philosophers(t_philo_info *philo_info)
 			check_vital, &philo_info->philosophers[i]);
 		pthread_detach(monitoring_thread);
 	}
-	if (philo_info->number_of_must_eat)
+	if (!philo_info->is_end && philo_info->number_of_must_eat)
 	{
 		pthread_create(&monitoring_thread, NULL,
 			check_all_is_full, philo_info->philosophers);

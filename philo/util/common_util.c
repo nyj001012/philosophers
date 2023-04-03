@@ -26,6 +26,20 @@ long long	get_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
+/*
+ * Description: 주어진 시간 만큼 usleep을 한다.
+ * Param.   #1: usleep을 하는 데 걸리는 시간
+ * Return     : 없음
+ */
+void	my_usleep(long long duration)
+{
+	long long	now;
+
+	now = get_time();
+	while (get_time() < duration + now)
+		usleep(1);
+}
+
 long long	ft_atoll(const char *str)
 {
 	long long	ll;

@@ -23,7 +23,7 @@ SRCS = ./main.c\
 OBJS   = $(SRCS:.c=.o)
 INC	   = -I include
 
-CC	   = gcc
+CC	   = cc
 CFLAGS = -Wall -Wextra -Werror -g
 RM	   = rm -rf
 

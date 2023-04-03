@@ -56,6 +56,7 @@ typedef struct s_philosophers
 /*--------------------------------- UTIL ------------------------------------*/
 long long	ft_atoll(const char *str);
 long long	get_time(void);
+void		my_usleep(long long duration);
 
 /*----------------------------- PHILOSOPHERS --------------------------------*/
 void		init_philo_info(t_philo_info *philo_info, char **argv);
