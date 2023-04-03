@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:15:48 by yena              #+#    #+#             */
-/*   Updated: 2023/04/02 21:41:14 by yena             ###   ########.fr       */
+/*   Updated: 2023/04/03 15:40:30 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	take_fork(t_philosophers *philosophers)
 		return ;
 	pthread_mutex_lock(philosophers->left_fork);
 	print_fork(philosophers);
-	if (philosophers->philo_info->number_of_philosophers == 1)
+	if (philosophers->philo_info->is_end
+		|| philosophers->philo_info->number_of_philosophers == 1)
 	{
 		pthread_mutex_unlock(philosophers->left_fork);
 		philosophers->is_alive = false;
